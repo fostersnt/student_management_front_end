@@ -22,7 +22,9 @@
       <h2 >{{ obj.name}}</h2>
       <h2 v-for="age in obj.ages" :key="age">{{ age }}</h2>
     </div>
-    
+    <div>
+      <h2 v-for="(value, key, index) in myObj" :key="value">{{ index+1 }}{{ key }}{{ value }}</h2>
+    </div>
     <div v-show="form_values.age == 8">
       <h2>cart</h2>
     </div>
@@ -59,7 +61,12 @@ export default {
           name: 'Kwaku', 
           ages: ['28', '21']
         }
-      ]
+      ],
+      myObj: {
+        name: 'John',
+        age: 23,
+        class: 'Basic 3'
+      }
     }
   },
   methods: {
