@@ -14,6 +14,7 @@
       </select>
       <h2 v-for="(name, ind) in form_values.choices" :key="name">{{ ind + 1 }} {{ name }}</h2>
       <button @click="show_data($event)">Display values</button>
+      <h2 v-for="(obj, ind) in my_objs" :key="obj">{{ ind + 1 }} {{ obj.name }}</h2>
 
     </form>
     <div v-show="form_values.age == 8">
@@ -37,7 +38,12 @@ export default {
         name: '',
         age: 0,
         choices: []
-      }
+      },
+      my_objs: [
+        {name: 'Foster', age: 21},
+        {name: 'Asante', age: 3},
+        {name: 'Amponsah', age: 90}
+      ]
     }
   },
   methods: {
