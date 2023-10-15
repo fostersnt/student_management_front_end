@@ -1,11 +1,20 @@
 <template>
   <div>
     <form action="" :class="form_values.age == '0' ? 'my_border' : ''">
-      <label for="name">Name</label>
-      <input type="text" name="" id="name" v-model="form_values.name">
-      <label for="age">Age</label>
-      <input type="text" name="" id="age" v-model="form_values.age">
+      <label for="name">Name</label><br>
+      <input type="text" name="" id="name" v-model="form_values.name"><br>
+      <label for="age">Age</label><br>
+      <input type="text" name="" id="age" v-model="form_values.age"><br>
+      <label for="choices">Choices</label><br>
+      <select name="" id="choices" multiple v-model="form_values.choices">
+        <option value="car">car</option>
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="c">c</option>
+      </select>
+      <h2 v-for="(name, ind) in form_values.choices" :key="name">{{ ind + 1 }} {{ name }}</h2>
       <button @click="show_data($event)">Display values</button>
+
     </form>
     <div v-show="form_values.age == 8">
       <h2>cart</h2>
@@ -26,7 +35,8 @@ export default {
     return {
       form_values: {
         name: '',
-        age: 0
+        age: 0,
+        choices: []
       }
     }
   },
